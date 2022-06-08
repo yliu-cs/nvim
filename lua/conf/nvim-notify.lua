@@ -1,0 +1,10 @@
+local notify_opts = {
+    stages = "fade",
+    timeout = 2000
+}
+if vim.g.background_transparency then
+    notify_opts.background_colour = "#ffffff"
+end
+vim.notify = require("notify")
+vim.notify.setup(notify_opts)
+vim.keybinds.gmap("n", "<leader>fn", "<cmd>lua require('telescope').extensions.notify.notify()<CR>", vim.keybinds.opts)
